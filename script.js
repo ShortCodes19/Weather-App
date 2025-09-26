@@ -8,11 +8,8 @@ const searchBtn = document.querySelector(".search button");
 const weather = document.querySelector(".weather");
 const error = document.querySelector(".error");
 
-const apiKey = config.apiKey;
-const apiURL = config.apiURL;
-
 async function checkWeather(cityName) {
-  const response = await fetch(apiURL + cityName + `&appid=${apiKey}`);
+  const response = await fetch(`/api/weather?city=${cityName}`);
   if (response.status === 404) {
     error.style.display = "block";
     weather.style.display = "none";
