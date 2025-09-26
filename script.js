@@ -8,8 +8,8 @@ const searchBtn = document.querySelector(".search button");
 const weather = document.querySelector(".weather");
 const error = document.querySelector(".error");
 
-const apiKey = "your api key here!";
-const apiURL = "https://api.openweathermap.org/data/2.5/weather?q=";
+const apiKey = config.apiKey;
+const apiURL = config.apiURL;
 
 async function checkWeather(cityName) {
   const response = await fetch(apiURL + cityName + `&appid=${apiKey}`);
