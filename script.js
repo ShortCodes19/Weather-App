@@ -10,12 +10,12 @@ const error = document.querySelector(".error");
 
 async function checkWeather(cityName) {
   const response = await fetch(`/api/weather?city=${cityName}`);
-  if (response.status === 404) {
+  const data = await response.json();
+
+  if (response.status !== 200) {
     error.style.display = "block";
     weather.style.display = "none";
   } else {
-    let data = await response.json();
-
     // Convert temperature from Kelvin to Celsius
     const tempInCelsius = data.main.temp - 273.15;
 
